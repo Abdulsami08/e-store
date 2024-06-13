@@ -8,7 +8,7 @@ import {client} from '../../sanity/lib/client'
 import { urlForImage } from "../../sanity/lib/image";
 import { Image as IImage } from "sanity";
 
- const getData = async ()=>{
+ const getProductData = async ()=>{
   const res = await client.fetch(`*[_type=='product']{
     title,
     discription,
@@ -31,7 +31,7 @@ interface IProduct{
 
 export default async function Home() {
 
-  const data:IProduct[] = await getData()
+  const data:IProduct[] = await getProductData()
   console.log(data);
 
   return (
